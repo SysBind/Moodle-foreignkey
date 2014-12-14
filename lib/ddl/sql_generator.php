@@ -86,7 +86,7 @@ abstract class sql_generator {
     public $unique_keys = false;
 
     /** @var bool True if the generator builds foreign keys.*/
-    public $foreign_keys = false;
+    public $foreign_keys = true;
 
     /** @var string Template to drop PKs. 'TABLENAME' and 'KEYNAME' will be replaced from this template.*/
     public $drop_primary_key = 'ALTER TABLE TABLENAME DROP CONSTRAINT KEYNAME';

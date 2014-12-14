@@ -105,6 +105,7 @@ function xmldb_main_install() {
         throw new moodle_exception('generalexceptionmessage', 'error', '', 'Can not create default course category, categories already exist.');
     }
     $cat = new stdClass();
+    $cat->parent       = null;
     $cat->name         = get_string('miscellaneous');
     $cat->depth        = 1;
     $cat->sortorder    = MAX_COURSES_IN_CATEGORY;
