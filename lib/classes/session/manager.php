@@ -291,6 +291,8 @@ class manager {
         if (isset($_SESSION['USER']->id)) {
             if (!empty($_SESSION['USER']->realuser)) {
                 $userid = $_SESSION['USER']->realuser;
+            } elseif (empty($_SESSION['USER']->id)){
+                $userid = $record->userid;
             } else {
                 $userid = $_SESSION['USER']->id;
             }
@@ -396,7 +398,7 @@ class manager {
             self::add_session_record($user->id);
         } else {
             self::init_empty_session();
-            self::add_session_record(0);
+            self::add_session_record(2);
         }
 
         if ($timedout) {

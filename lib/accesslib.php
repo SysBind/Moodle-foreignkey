@@ -1578,7 +1578,11 @@ function assign_capability($capability, $permission, $roleid, $contextid, $overw
     $cap->capability   = $capability;
     $cap->permission   = $permission;
     $cap->timemodified = time();
-    $cap->modifierid   = empty($USER->id) ? 2 : $USER->id;
+    if(during_initial_install()){
+        $cap->modifierid = 2;
+    } else { 
+        $cap->modifierid   = empty($USER->id) ? 0 : $USER->id;
+    }
 
     if ($existing) {
         $cap->id = $existing->id;
